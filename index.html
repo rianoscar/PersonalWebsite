@@ -10,6 +10,7 @@
     >
     <meta name="theme-color" content="#0b0d10">
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
@@ -75,68 +76,78 @@
         </div>
       </section>
 
-      <section class="section-shell" id="projects">
+      <section class="work-index section-shell" id="projects">
         <div class="section-heading compact-heading">
-          <p class="eyebrow">Projects</p>
-          <h2>Interactive systems for metaverse, kiosks, events, games, and social AR.</h2>
+          <p class="eyebrow">Work Index</p>
+          <h2>Seven projects, one interaction at a time.</h2>
         </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <img src="assets/portfolio/virtual-training.jpg" alt="Virtual Machine Training Template VR Unity project screenshots">
-            <div>
-              <p class="project-kicker">VR Training / Desktop Simulation</p>
-              <h3>Virtual Machine Training Template</h3>
-              <p>Flexible Unity framework for guided lessons, interactive 3D machines, quizzes, PDF modules, and free-play exploration.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/portfolio/cosmize.jpg" alt="Cosmize metaverse platform screenshots with avatar and personal room customization">
-            <div>
-              <p class="project-kicker">Metaverse / Cross Platform</p>
-              <h3>Cosmize</h3>
-              <p>Social metaverse platform with multiplayer, avatar customization, personal rooms, API systems, and asset bundles.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/portfolio/ransverse.jpg" alt="Ransverse metaverse platform screenshot">
-            <div>
-              <p class="project-kicker">Metaverse</p>
-              <h3>Ransverse</h3>
-              <p>Open-world social platform with multiplayer, avatars, land customization, chat, microphone, and VR support.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/portfolio/astra-wayfinding.jpg" alt="Astra Wayfinding desktop application screenshot">
-            <div>
-              <p class="project-kicker">Desktop / Kiosk</p>
-              <h3>Astra Wayfinding</h3>
-              <p>Interactive 3D wayfinding application for tenants, facilities, promotions, events, and touchscreen navigation.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/portfolio/kinect-photobooth.jpg" alt="Astra Kinect Photobooth interactive installation screenshots">
-            <div>
-              <p class="project-kicker">Kinect / Installation</p>
-              <h3>Astra Kinect Photobooth</h3>
-              <p>Touchscreen photobooth with Kinect integration, live background removal, animated characters, upload, QR, and API flows.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/portfolio/ar-filters.jpg" alt="TikTok and Instagram AR filter screenshots">
-            <div>
-              <p class="project-kicker">AR Filters</p>
-              <h3>TikTok & Instagram Filters</h3>
-              <p>Social filters and mini-games built with Effect House and Spark AR, reaching 30,000+ videos and 5.5M+ views.</p>
-            </div>
-          </article>
-          <article class="project-card">
-            <img src="assets/portfolio/virtual-aquarium.jpg" alt="Virtual Aquarium and mini games touchscreen project screenshots">
-            <div>
-              <p class="project-kicker">Interactive Education</p>
-              <h3>Virtual Aquarium & Mini Games</h3>
-              <p>Touchscreen aquarium experience with 3D marine life, educational content, and interactive mini-games.</p>
-            </div>
-          </article>
+        <div class="project-index-layout">
+          <div class="project-index-list" aria-label="Project index">
+            <button class="project-index-item" type="button" data-project-index="0" aria-pressed="false">
+              <span class="project-number">01</span>
+              <span class="project-index-copy">
+                <span class="project-type">VR Training / Desktop</span>
+                <strong>Virtual Machine Training Template</strong>
+              </span>
+              <span class="project-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <button class="project-index-item is-active" type="button" data-project-index="1" aria-pressed="true">
+              <span class="project-number">02</span>
+              <span class="project-index-copy">
+                <span class="project-type">Metaverse / Cross Platform</span>
+                <strong>Cosmize</strong>
+              </span>
+              <span class="project-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <button class="project-index-item" type="button" data-project-index="2" aria-pressed="false">
+              <span class="project-number">03</span>
+              <span class="project-index-copy">
+                <span class="project-type">Metaverse / VR</span>
+                <strong>Ransverse</strong>
+              </span>
+              <span class="project-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <button class="project-index-item" type="button" data-project-index="3" aria-pressed="false">
+              <span class="project-number">04</span>
+              <span class="project-index-copy">
+                <span class="project-type">Desktop / Kiosk</span>
+                <strong>Astra Wayfinding</strong>
+              </span>
+              <span class="project-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <button class="project-index-item" type="button" data-project-index="4" aria-pressed="false">
+              <span class="project-number">05</span>
+              <span class="project-index-copy">
+                <span class="project-type">Kinect / Installation</span>
+                <strong>Astra Kinect Photobooth</strong>
+              </span>
+              <span class="project-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <button class="project-index-item" type="button" data-project-index="5" aria-pressed="false">
+              <span class="project-number">06</span>
+              <span class="project-index-copy">
+                <span class="project-type">Social AR</span>
+                <strong>TikTok &amp; Instagram Filters</strong>
+              </span>
+              <span class="project-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+            <button class="project-index-item" type="button" data-project-index="6" aria-pressed="false">
+              <span class="project-number">07</span>
+              <span class="project-index-copy">
+                <span class="project-type">Touchscreen / Education</span>
+                <strong>Virtual Aquarium &amp; Mini Games</strong>
+              </span>
+              <span class="project-arrow" aria-hidden="true">&rarr;</span>
+            </button>
+          </div>
+
+          <button class="project-index-preview" type="button" data-project-preview aria-label="Open Cosmize project details">
+            <span class="project-preview-bar">
+              <span>Click to open</span>
+              <span aria-hidden="true">&nearr;</span>
+            </span>
+            <img data-project-preview-image src="assets/portfolio/cosmize.jpg" alt="Cosmize metaverse platform preview">
+          </button>
         </div>
       </section>
 
@@ -226,6 +237,43 @@
         </div>
       </section>
     </main>
+
+    <dialog class="project-dialog" id="project-dialog" aria-labelledby="dialog-project-title">
+      <div class="project-dialog-shell">
+        <header class="project-dialog-header">
+          <p class="project-dialog-counter" data-dialog-counter>Project 01 / 07</p>
+          <button class="dialog-close" type="button" data-dialog-close aria-label="Close project details" title="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </header>
+        <div class="project-dialog-grid">
+          <div class="project-dialog-media">
+            <img data-dialog-image src="assets/portfolio/virtual-training.jpg" alt="Virtual Machine Training Template project screenshots">
+          </div>
+          <article class="project-dialog-copy">
+            <p class="project-kicker" data-dialog-type>VR Training / Desktop</p>
+            <h2 id="dialog-project-title" data-dialog-title>Virtual Machine Training Template</h2>
+            <p class="project-dialog-description" data-dialog-description></p>
+            <dl class="project-dialog-meta">
+              <div>
+                <dt>Role</dt>
+                <dd data-dialog-role>Unity Developer</dd>
+              </div>
+              <div>
+                <dt>Stack</dt>
+                <dd>
+                  <ul class="project-stack" data-dialog-stack></ul>
+                </dd>
+              </div>
+            </dl>
+            <nav class="project-dialog-nav" aria-label="Project navigation">
+              <button type="button" data-project-previous aria-label="Show previous project">&larr; Previous</button>
+              <button type="button" data-project-next aria-label="Show next project">Next &rarr;</button>
+            </nav>
+          </article>
+        </div>
+      </div>
+    </dialog>
 
     <footer class="site-footer">
       <p>(c) 2026 Rian Oscar. Unity & Interactive Experience Developer.</p>
