@@ -272,22 +272,242 @@ h3 {
   margin-bottom: 1.5rem;
 }
 
-.skills-grid p,
 .timeline p,
 .contact p {
   color: var(--muted);
 }
 
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.skills-grid article,
 .contact-panel {
   border: 1px solid var(--line);
   background: rgba(18, 22, 29, 0.78);
+}
+
+.skill-map-section {
+  width: min(1500px, calc(100% - 32px));
+}
+
+.skill-map-section .section-heading h2 {
+  max-width: none;
+}
+
+.skill-map-section .eyebrow {
+  position: relative;
+  width: max-content;
+  padding-bottom: 0.45rem;
+  color: var(--cyan);
+}
+
+.skill-map-section .eyebrow::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 2.2rem;
+  height: 1px;
+  background: var(--cyan);
+  content: "";
+}
+
+.skill-map {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(320px, 0.9fr) minmax(300px, 1fr);
+  grid-template-areas:
+    "creative core technical"
+    "tools core platforms"
+    ". interaction .";
+  column-gap: 7.5rem;
+  row-gap: 2.75rem;
+  align-items: stretch;
+  margin-top: 2.8rem;
+}
+
+.skill-map-links {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: none;
+  pointer-events: none;
+  stroke: var(--cyan);
+  stroke-width: 1.5;
+  stroke-linejoin: miter;
+  vector-effect: non-scaling-stroke;
+}
+
+.skill-map-links circle {
+  fill: var(--cyan);
+  stroke: none;
+}
+
+.skill-cluster {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+  border: 1px solid rgba(169, 178, 191, 0.42);
+  border-radius: 8px;
+  background: rgba(14, 18, 24, 0.92);
+  padding: 1.4rem 1.55rem 1.55rem;
+}
+
+.skill-creative { grid-area: creative; }
+.skill-technical { grid-area: technical; }
+.skill-tools { grid-area: tools; }
+.skill-platforms { grid-area: platforms; }
+.skill-interaction { grid-area: interaction; }
+
+.skill-cluster-header {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.15rem;
+}
+
+.skill-icon,
+.skill-core-icon {
+  fill: none;
+  color: var(--cyan);
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.skill-icon {
+  width: 2.6rem;
+  height: 2.6rem;
+}
+
+.skill-cluster h3 {
+  margin: 0;
+  border-bottom: 1px solid var(--cyan);
+  padding-bottom: 0.65rem;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.skill-cluster ul {
+  display: grid;
+  gap: 0.4rem;
+  padding: 0;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-sans);
+  list-style: none;
+}
+
+.skill-cluster li {
+  position: relative;
+  padding-left: 1.45rem;
+}
+
+.skill-cluster li::before {
+  position: absolute;
+  top: 0.68em;
+  left: 0.2rem;
+  width: 0.35rem;
+  height: 0.35rem;
+  border-radius: 50%;
+  background: var(--cyan);
+  content: "";
+}
+
+.skill-core {
+  position: relative;
+  z-index: 2;
+  grid-area: core;
+  align-self: center;
+  border: 1px solid var(--cyan);
+  border-radius: 8px;
+  background: #10151b;
+  padding: 2rem 1.5rem 1.7rem;
+  text-align: center;
+}
+
+.skill-core-icon {
+  width: 4.4rem;
+  height: 4.4rem;
+  margin-bottom: 1.15rem;
+}
+
+.skill-core h3 {
+  margin-bottom: 1rem;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: clamp(1.35rem, 2.1vw, 2rem);
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.skill-core p {
+  margin: 0;
+  border-top: 1px solid var(--cyan);
+  padding-top: 0.85rem;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  line-height: 1.55;
+}
+
+@media (max-width: 1240px) and (min-width: 801px) {
+  .skill-map {
+    grid-template-columns: minmax(250px, 1fr) minmax(280px, 0.88fr) minmax(250px, 1fr);
+    column-gap: 3.25rem;
+  }
+
+  .skill-cluster {
+    padding-inline: 1.1rem;
+  }
+
+  .skill-cluster-header {
+    grid-template-columns: 2.1rem minmax(0, 1fr);
+    gap: 0.7rem;
+  }
+
+  .skill-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+}
+
+.ai-workflow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.65rem;
+  margin-top: 2.8rem;
+  border: 1px solid var(--line);
+  background: rgba(18, 22, 29, 0.5);
+  padding: 1rem 1.4rem;
+}
+
+.ai-workflow p,
+.ai-workflow span {
+  margin: 0;
+  font-family: var(--font-mono);
+}
+
+.ai-workflow p {
+  margin-right: 0.5rem;
+  color: var(--yellow);
+  font-size: 0.8rem;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.ai-workflow span {
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+.ai-workflow span::before {
+  margin-right: 0.55rem;
+  color: var(--cyan);
+  content: "+";
 }
 
 .work-index {
@@ -597,10 +817,6 @@ body.modal-open {
   overflow: hidden;
 }
 
-.skills-grid article {
-  padding: 1.15rem;
-}
-
 .experience {
   width: min(1600px, calc(100% - 32px));
 }
@@ -738,11 +954,6 @@ body.modal-open {
   color: var(--yellow);
 }
 
-.skills-grid article {
-  min-height: 12rem;
-}
-
-.skills-grid h3,
 .timeline h3 {
   color: var(--text);
 }
@@ -821,10 +1032,6 @@ body.modal-open {
     min-height: auto;
   }
 
-  .skills-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .project-dialog-grid {
     grid-template-columns: 1fr;
   }
@@ -899,6 +1106,53 @@ body.modal-open {
   }
 }
 
+@media (max-width: 800px) {
+  .skill-map-section {
+    width: min(1120px, calc(100% - 32px));
+  }
+
+  .skill-map {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "core"
+      "creative"
+      "technical"
+      "tools"
+      "platforms"
+      "interaction";
+    gap: 2rem;
+    margin-top: 2rem;
+    min-height: 0;
+  }
+
+  .skill-map-links {
+    display: none;
+  }
+
+  .skill-cluster {
+    padding: 1.25rem;
+  }
+
+  .skill-core {
+    padding: 1.5rem 1rem;
+  }
+
+  .skill-core-icon {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+
+  .ai-workflow {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .ai-workflow p {
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 620px) {
   .section-shell {
     width: min(100% - 24px, 1120px);
@@ -933,10 +1187,6 @@ body.modal-open {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-left: 0;
     padding-top: 1rem;
-  }
-
-  .skills-grid {
-    grid-template-columns: 1fr;
   }
 
   .project-index-item {

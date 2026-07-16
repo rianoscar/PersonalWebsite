@@ -11,6 +11,7 @@
     <meta name="theme-color" content="#0b0d10">
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script src="skill-map.js" defer></script>
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
@@ -194,28 +195,113 @@
         </div>
       </section>
 
-      <section class="skills section-shell" id="skills">
+      <section class="skills skill-map-section section-shell" id="skills">
         <div class="section-heading compact-heading">
-          <p class="eyebrow">Skills</p>
-          <h2>Tools and systems I use to ship interactive experiences.</h2>
+          <p class="eyebrow">Skill Map</p>
+          <h2>Core strengths. Connected by design.</h2>
         </div>
-        <div class="skills-grid">
-          <article>
-            <h3>Unity Development</h3>
-            <p>C#, gameplay mechanics, UI flows, editor scripting, optimization, local data, and build delivery.</p>
+        <div class="skill-map" aria-label="Interactive experience development skill map">
+          <svg class="skill-map-links" aria-hidden="true">
+            <path data-skill-link="creative"></path>
+            <path data-skill-link="technical"></path>
+            <path data-skill-link="tools"></path>
+            <path data-skill-link="platforms"></path>
+            <path data-skill-link="interaction"></path>
+            <circle data-skill-node="creative" r="5"></circle>
+            <circle data-skill-node="technical" r="5"></circle>
+            <circle data-skill-node="tools" r="5"></circle>
+            <circle data-skill-node="platforms" r="5"></circle>
+            <circle data-skill-node="interaction" r="5"></circle>
+            <circle data-skill-node="interaction-core" r="5"></circle>
+          </svg>
+          <article class="skill-cluster skill-creative">
+            <div class="skill-cluster-header">
+              <svg class="skill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 18h6"></path><path d="M10 22h4"></path>
+                <path d="M15.1 14c.2-.6.7-1.1 1.2-1.5A6 6 0 1 0 7.7 12.5c.5.4 1 1 1.2 1.5"></path>
+              </svg>
+              <h3>Creative Direction</h3>
+            </div>
+            <ul>
+              <li>Concept development</li>
+              <li>Interaction design</li>
+              <li>Visual feedback</li>
+            </ul>
           </article>
-          <article>
-            <h3>Immersive Platforms</h3>
-            <p>VR interaction, desktop simulation, web-based virtual tours with krpano, multiplatform deployment, and 3D asset integration.</p>
+          <article class="skill-cluster skill-technical">
+            <div class="skill-cluster-header">
+              <svg class="skill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-2.8 2.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-4V21a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1L4.2 17l.1-.1a1.7 1.7 0 0 0 .3-1.9A1.7 1.7 0 0 0 3 14H2.8v-4H3a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9L4.2 7 7 4.2l.1.1a1.7 1.7 0 0 0 1.9.3A1.7 1.7 0 0 0 10 3V2.8h4V3a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1L19.8 7l-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2v4H21a1.7 1.7 0 0 0-1.6 1Z"></path>
+              </svg>
+              <h3>Technical Foundation</h3>
+            </div>
+            <ul>
+              <li>C#</li>
+              <li>Real-time systems</li>
+              <li>UI flows</li>
+              <li>Optimization</li>
+            </ul>
           </article>
-          <article>
-            <h3>Interactive Installations</h3>
-            <p>Kinect, touchscreen, photobooth flows, QR integration, live feedback, event games, and kiosks.</p>
+          <article class="skill-cluster skill-tools">
+            <div class="skill-cluster-header">
+              <svg class="skill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m8 9-4 3 4 3"></path><path d="m16 9 4 3-4 3"></path><path d="m14 5-4 14"></path>
+              </svg>
+              <h3>Development Tools</h3>
+            </div>
+            <ul>
+              <li>Unity</li>
+              <li>Effect House</li>
+              <li>Spark AR</li>
+              <li>krpano</li>
+            </ul>
           </article>
-          <article>
-            <h3>Social AR</h3>
-            <p>Spark AR, Effect House, head tracking, mouth tracking, 2D animation, mini-games, and playful filters.</p>
+          <article class="skill-core">
+            <svg class="skill-core-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M21 16V8a2 2 0 0 0-1-1.7l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.7l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path>
+              <path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path>
+            </svg>
+            <h3>Interactive Experience Development</h3>
+            <p>Creative direction + technical execution</p>
           </article>
+          <article class="skill-cluster skill-platforms">
+            <div class="skill-cluster-header">
+              <svg class="skill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="3" width="20" height="14" rx="1"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path>
+              </svg>
+              <h3>Deployment Platforms</h3>
+            </div>
+            <ul>
+              <li>Desktop</li>
+              <li>VR</li>
+              <li>Mobile</li>
+              <li>Web</li>
+            </ul>
+          </article>
+          <article class="skill-cluster skill-interaction">
+            <div class="skill-cluster-header">
+              <svg class="skill-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 11V6a2 2 0 0 1 4 0v4"></path><path d="M13 10V5a2 2 0 0 1 4 0v6"></path>
+                <path d="M17 11V8a2 2 0 0 1 4 0v6c0 4.4-3.6 8-8 8h-1.3a6 6 0 0 1-4.2-1.8L3.6 16a2 2 0 0 1 2.8-2.8L9 15.8"></path>
+              </svg>
+              <h3>Interaction Modalities</h3>
+            </div>
+            <ul>
+              <li>VR interaction</li>
+              <li>Touchscreen</li>
+              <li>Kinect body tracking</li>
+              <li>Mouse + keyboard</li>
+            </ul>
+          </article>
+        </div>
+        <div class="ai-workflow">
+          <p>AI-Augmented Workflow</p>
+          <span>Ideation</span>
+          <span>Rapid prototyping</span>
+          <span>Coding assistance</span>
+          <span>Research</span>
+          <span>Iteration</span>
         </div>
       </section>
 
