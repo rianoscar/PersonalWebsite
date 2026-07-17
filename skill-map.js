@@ -2,15 +2,18 @@ const map = document.querySelector(".skill-map");
 const coreElement = document.querySelector(".skill-core");
 const links = document.querySelector(".skill-map-links");
 
-function relativeRect(element, mapRect) {
-  const rect = element.getBoundingClientRect();
+function relativeRect(element) {
+  const left = element.offsetLeft;
+  const top = element.offsetTop;
+  const width = element.offsetWidth;
+  const height = element.offsetHeight;
   return {
-    left: rect.left - mapRect.left,
-    right: rect.right - mapRect.left,
-    top: rect.top - mapRect.top,
-    bottom: rect.bottom - mapRect.top,
-    width: rect.width,
-    height: rect.height,
+    left,
+    right: left + width,
+    top,
+    bottom: top + height,
+    width,
+    height,
   };
 }
 
@@ -18,7 +21,7 @@ function drawSkillLinks() {
   if (!map || !coreElement || !links || window.innerWidth <= 800) return;
 
   const mapRect = map.getBoundingClientRect();
-  const core = relativeRect(coreElement, mapRect);
+  const core = relativeRect(coreElement);
   links.setAttribute("viewBox", `0 0 ${mapRect.width} ${mapRect.height}`);
 
   const definitions = [
@@ -29,7 +32,7 @@ function drawSkillLinks() {
   ];
 
   definitions.forEach(([name, selector, side, cardPosition, corePosition]) => {
-    const card = relativeRect(document.querySelector(selector), mapRect);
+    const card = relativeRect(document.querySelector(selector));
     const startX = side === "left" ? card.right : card.left;
     const startY = card.top + card.height * cardPosition;
     const endX = side === "left" ? core.left : core.right;
@@ -44,9 +47,12 @@ function drawSkillLinks() {
     const node = links.querySelector(`[data-skill-node="${name}"]`);
     node.setAttribute("cx", startX);
     node.setAttribute("cy", startY);
+    const coreNode = links.querySelector(`[data-skill-node="${name}-core"]`);
+    coreNode.setAttribute("cx", endX);
+    coreNode.setAttribute("cy", endY);
   });
 
-  const interaction = relativeRect(document.querySelector(".skill-interaction"), mapRect);
+  const interaction = relativeRect(document.querySelector(".skill-interaction"));
   const interactionX = interaction.left + interaction.width / 2;
   const coreX = core.left + core.width / 2;
   links.querySelector('[data-skill-link="interaction"]').setAttribute(

@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
     <script src="skill-map.js" defer></script>
+    <script src="motion.js" defer></script>
   </head>
   <body>
     <header class="site-header" aria-label="Primary navigation">
@@ -202,15 +203,19 @@
         </div>
         <div class="skill-map" aria-label="Interactive experience development skill map">
           <svg class="skill-map-links" aria-hidden="true">
-            <path data-skill-link="creative"></path>
-            <path data-skill-link="technical"></path>
-            <path data-skill-link="tools"></path>
-            <path data-skill-link="platforms"></path>
-            <path data-skill-link="interaction"></path>
+            <path data-skill-link="creative" pathLength="1"></path>
+            <path data-skill-link="technical" pathLength="1"></path>
+            <path data-skill-link="tools" pathLength="1"></path>
+            <path data-skill-link="platforms" pathLength="1"></path>
+            <path data-skill-link="interaction" pathLength="1"></path>
             <circle data-skill-node="creative" r="5"></circle>
+            <circle data-skill-node="creative-core" r="5"></circle>
             <circle data-skill-node="technical" r="5"></circle>
+            <circle data-skill-node="technical-core" r="5"></circle>
             <circle data-skill-node="tools" r="5"></circle>
+            <circle data-skill-node="tools-core" r="5"></circle>
             <circle data-skill-node="platforms" r="5"></circle>
+            <circle data-skill-node="platforms-core" r="5"></circle>
             <circle data-skill-node="interaction" r="5"></circle>
             <circle data-skill-node="interaction-core" r="5"></circle>
           </svg>
