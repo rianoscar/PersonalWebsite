@@ -2,7 +2,13 @@ const projects = [
   {
     title: "Virtual Machine Training Template",
     type: "VR Training / Desktop Simulation",
-    image: "assets/portfolio/virtual-training.jpg",
+    image: "assets/projects/01-virtual-machine-training/VMT1.png",
+    images: [
+      "assets/projects/01-virtual-machine-training/VMT1.png",
+      "assets/projects/01-virtual-machine-training/VMT2.png",
+      "assets/projects/01-virtual-machine-training/VMT3.png",
+      "assets/projects/01-virtual-machine-training/VMT4.png",
+    ],
     alt: "Virtual Machine Training Template VR Unity project screenshots",
     role: "Unity Developer",
     description:
@@ -12,7 +18,13 @@ const projects = [
   {
     title: "Cosmize",
     type: "Metaverse / Cross Platform",
-    image: "assets/portfolio/cosmize.jpg",
+    image: "assets/projects/02-cosmize/Cosmize1.png",
+    images: [
+      "assets/projects/02-cosmize/Cosmize1.png",
+      "assets/projects/02-cosmize/Cosmize2.png",
+      "assets/projects/02-cosmize/Cosmize3.png",
+      "assets/projects/02-cosmize/Cosmize4.png",
+    ],
     alt: "Cosmize metaverse platform with avatars and social spaces",
     role: "Unity Developer",
     description:
@@ -22,7 +34,13 @@ const projects = [
   {
     title: "Ransverse",
     type: "Metaverse / VR",
-    image: "assets/portfolio/ransverse.jpg",
+    image: "assets/projects/03-ransverse/Ransverse1.png",
+    images: [
+      "assets/projects/03-ransverse/Ransverse1.png",
+      "assets/projects/03-ransverse/Ransverse2.jpg",
+      "assets/projects/03-ransverse/Ransverse3.png",
+      "assets/projects/03-ransverse/Ransverse4.png",
+    ],
     alt: "Ransverse open-world metaverse platform screenshot",
     role: "Unity Developer",
     description:
@@ -32,7 +50,13 @@ const projects = [
   {
     title: "Astra Wayfinding",
     type: "Desktop / Kiosk",
-    image: "assets/portfolio/astra-wayfinding.jpg",
+    image: "assets/projects/04-astra-wayfinding/AstraPathfinding1.png",
+    images: [
+      "assets/projects/04-astra-wayfinding/AstraPathfinding1.png",
+      "assets/projects/04-astra-wayfinding/AstraPathfinding2.png",
+      "assets/projects/04-astra-wayfinding/AstraPathfinding3.png",
+      "assets/projects/04-astra-wayfinding/AstraPathfinding4.png",
+    ],
     alt: "Astra Wayfinding interactive desktop kiosk application",
     role: "Unity Developer",
     description:
@@ -42,7 +66,13 @@ const projects = [
   {
     title: "Astra Kinect Photobooth",
     type: "Kinect / Installation",
-    image: "assets/portfolio/kinect-photobooth.jpg",
+    image: "assets/projects/05-astra-kinect-photobooth/AstraPhotobooth1.png",
+    images: [
+      "assets/projects/05-astra-kinect-photobooth/AstraPhotobooth1.png",
+      "assets/projects/05-astra-kinect-photobooth/AstraPhotobooth2.png",
+      "assets/projects/05-astra-kinect-photobooth/AstraPhotobooth3.png",
+      "assets/projects/05-astra-kinect-photobooth/AstraPhotobooth4.jpg",
+    ],
     alt: "Astra Kinect Photobooth interactive installation screenshots",
     role: "Unity Developer",
     description:
@@ -52,7 +82,15 @@ const projects = [
   {
     title: "TikTok & Instagram Filters",
     type: "Social AR",
-    image: "assets/portfolio/ar-filters.jpg",
+    image: "assets/projects/06-social-ar-filters/TiktokFilter1.png",
+    images: [
+      "assets/projects/06-social-ar-filters/TiktokFilter1.png",
+      "assets/projects/06-social-ar-filters/TiktokFilter2.png",
+      "assets/projects/06-social-ar-filters/TiktokFilter3.png",
+      "assets/projects/06-social-ar-filters/TiktokFilter4.png",
+      "assets/projects/06-social-ar-filters/TiktokFilter5.png",
+      "assets/projects/06-social-ar-filters/TiktokFilter6.png",
+    ],
     alt: "TikTok and Instagram interactive AR filter examples",
     role: "Creative Developer",
     description:
@@ -62,7 +100,12 @@ const projects = [
   {
     title: "Virtual Aquarium & Mini Games",
     type: "Touchscreen / Education",
-    image: "assets/portfolio/virtual-aquarium.jpg",
+    image: "assets/projects/07-virtual-aquarium/VirtualAquarium.png",
+    images: [
+      "assets/projects/07-virtual-aquarium/VirtualAquarium.png",
+      "assets/projects/07-virtual-aquarium/VirtualAquarium2.png",
+      "assets/projects/07-virtual-aquarium/VirtualAquarium3.png",
+    ],
     alt: "Virtual Aquarium educational touchscreen experience and mini-games",
     role: "Unity Developer",
     description:
@@ -74,9 +117,18 @@ const projects = [
 const projectItems = Array.from(document.querySelectorAll("[data-project-index]"));
 const previewButton = document.querySelector("[data-project-preview]");
 const previewImage = document.querySelector("[data-project-preview-image]");
+const projectPageNodes = Array.from(document.querySelectorAll("[data-project-page]"));
 const dialog = document.querySelector("#project-dialog");
+const dialogImage = dialog.querySelector("[data-dialog-image]");
+const galleryCounter = dialog.querySelector("[data-gallery-counter]");
+const galleryThumbnails = dialog.querySelector("[data-gallery-thumbnails]");
+const galleryPrevious = dialog.querySelector("[data-gallery-previous]");
+const galleryNext = dialog.querySelector("[data-gallery-next]");
 
 let activeProjectIndex = 1;
+let activeImageIndex = 0;
+let activeProjectPage = 0;
+const projectsPerPage = 5;
 
 function setActiveProject(index) {
   activeProjectIndex = index;
@@ -93,13 +145,77 @@ function setActiveProject(index) {
   previewButton.setAttribute("aria-label", `Open ${project.title} project details`);
 }
 
+function setProjectPage(page, selectFirstProject = true) {
+  activeProjectPage = page;
+  const firstProjectIndex = page * projectsPerPage;
+  const lastProjectIndex = firstProjectIndex + projectsPerPage;
+
+  projectItems.forEach((item, index) => {
+    item.hidden = index < firstProjectIndex || index >= lastProjectIndex;
+  });
+
+  projectPageNodes.forEach((node, index) => {
+    const isActive = index === page;
+    node.classList.toggle("is-active", isActive);
+    if (isActive) {
+      node.setAttribute("aria-current", "page");
+    } else {
+      node.removeAttribute("aria-current");
+    }
+  });
+
+  if (selectFirstProject) {
+    setActiveProject(firstProjectIndex);
+  }
+}
+
+function setActiveGalleryImage(project, index) {
+  const imageCount = project.images.length;
+  activeImageIndex = (index + imageCount) % imageCount;
+  const imageNumber = String(activeImageIndex + 1).padStart(2, "0");
+  const totalImages = String(imageCount).padStart(2, "0");
+
+  dialogImage.src = project.images[activeImageIndex];
+  dialogImage.alt = `${project.alt}, image ${activeImageIndex + 1} of ${imageCount}`;
+  galleryCounter.textContent = `${imageNumber} / ${totalImages}`;
+
+  galleryThumbnails.querySelectorAll("button").forEach((thumbnail, thumbnailIndex) => {
+    const isActive = thumbnailIndex === activeImageIndex;
+    thumbnail.classList.toggle("is-active", isActive);
+    thumbnail.setAttribute("aria-pressed", String(isActive));
+  });
+}
+
+function buildProjectGallery(project) {
+  galleryThumbnails.replaceChildren(
+    ...project.images.map((image, index) => {
+      const button = document.createElement("button");
+      const thumbnail = document.createElement("img");
+
+      button.type = "button";
+      button.className = "project-gallery-thumbnail";
+      button.setAttribute("aria-label", `Show image ${index + 1} of ${project.images.length}`);
+      button.addEventListener("click", () => setActiveGalleryImage(project, index));
+
+      thumbnail.src = image;
+      thumbnail.alt = "";
+      thumbnail.loading = "lazy";
+      button.append(thumbnail);
+      return button;
+    }),
+  );
+
+  const hasMultipleImages = project.images.length > 1;
+  galleryPrevious.hidden = !hasMultipleImages;
+  galleryNext.hidden = !hasMultipleImages;
+  setActiveGalleryImage(project, 0);
+}
+
 function updateDialog(index) {
   const project = projects[index];
   const projectNumber = String(index + 1).padStart(2, "0");
 
   dialog.querySelector("[data-dialog-counter]").textContent = `Project ${projectNumber} / 07`;
-  dialog.querySelector("[data-dialog-image]").src = project.image;
-  dialog.querySelector("[data-dialog-image]").alt = project.alt;
   dialog.querySelector("[data-dialog-type]").textContent = project.type;
   dialog.querySelector("[data-dialog-title]").textContent = project.title;
   dialog.querySelector("[data-dialog-description]").textContent = project.description;
@@ -113,6 +229,8 @@ function updateDialog(index) {
       return item;
     }),
   );
+
+  buildProjectGallery(project);
 }
 
 function openProject(index) {
@@ -125,6 +243,10 @@ function openProject(index) {
 
 function showAdjacentProject(direction) {
   const nextIndex = (activeProjectIndex + direction + projects.length) % projects.length;
+  const nextPage = Math.floor(nextIndex / projectsPerPage);
+  if (nextPage !== activeProjectPage) {
+    setProjectPage(nextPage, false);
+  }
   setActiveProject(nextIndex);
   updateDialog(nextIndex);
 }
@@ -136,10 +258,21 @@ projectItems.forEach((item) => {
   item.addEventListener("click", () => openProject(index));
 });
 
+projectPageNodes.forEach((node) => {
+  const page = Number(node.dataset.projectPage);
+  node.addEventListener("click", () => setProjectPage(page));
+});
+
 previewButton.addEventListener("click", () => openProject(activeProjectIndex));
 dialog.querySelector("[data-dialog-close]").addEventListener("click", () => dialog.close());
 dialog.querySelector("[data-project-previous]").addEventListener("click", () => showAdjacentProject(-1));
 dialog.querySelector("[data-project-next]").addEventListener("click", () => showAdjacentProject(1));
+galleryPrevious.addEventListener("click", () => {
+  setActiveGalleryImage(projects[activeProjectIndex], activeImageIndex - 1);
+});
+galleryNext.addEventListener("click", () => {
+  setActiveGalleryImage(projects[activeProjectIndex], activeImageIndex + 1);
+});
 
 dialog.addEventListener("click", (event) => {
   if (event.target === dialog) {
@@ -151,4 +284,5 @@ dialog.addEventListener("close", () => {
   document.body.classList.remove("modal-open");
 });
 
+setProjectPage(activeProjectPage, false);
 setActiveProject(activeProjectIndex);

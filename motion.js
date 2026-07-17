@@ -22,6 +22,7 @@ if (!prefersReducedMotion) {
 
   prepareReveal(document.querySelectorAll(".project-index-item"), 70, 80);
   prepareReveal(document.querySelectorAll(".project-index-preview"), 0, 190);
+  prepareReveal(document.querySelectorAll(".project-pagination"), 0, 230);
   prepareReveal(document.querySelectorAll(".ai-workflow"), 0, 160);
   prepareReveal(document.querySelectorAll(".contact > *"), 120);
   prepareReveal(document.querySelectorAll(".site-footer > *"), 100);

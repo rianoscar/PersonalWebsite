@@ -148,9 +148,13 @@
               <span>Click to open</span>
               <span aria-hidden="true">&nearr;</span>
             </span>
-            <img data-project-preview-image src="assets/portfolio/cosmize.jpg" alt="Cosmize metaverse platform preview">
+            <img data-project-preview-image src="assets/projects/02-cosmize/Cosmize1.png" alt="Cosmize metaverse platform preview">
           </button>
         </div>
+        <nav class="project-pagination" aria-label="Project index pages">
+          <button class="project-page-node is-active" type="button" data-project-page="0" aria-label="Show project page 1" aria-current="page" title="Page 1"></button>
+          <button class="project-page-node" type="button" data-project-page="1" aria-label="Show project page 2" title="Page 2"></button>
+        </nav>
       </section>
 
       <section class="experience section-shell" id="experience">
@@ -339,7 +343,17 @@
         </header>
         <div class="project-dialog-grid">
           <div class="project-dialog-media">
-            <img data-dialog-image src="assets/portfolio/virtual-training.jpg" alt="Virtual Machine Training Template project screenshots">
+            <div class="project-gallery-stage">
+              <img data-dialog-image src="assets/projects/01-virtual-machine-training/VMT1.png" alt="Virtual Machine Training Template screenshot 1">
+              <button class="gallery-arrow gallery-arrow-previous" type="button" data-gallery-previous aria-label="Show previous image" title="Previous image">
+                <span aria-hidden="true">&larr;</span>
+              </button>
+              <button class="gallery-arrow gallery-arrow-next" type="button" data-gallery-next aria-label="Show next image" title="Next image">
+                <span aria-hidden="true">&rarr;</span>
+              </button>
+              <span class="project-gallery-counter" data-gallery-counter>01 / 04</span>
+            </div>
+            <div class="project-gallery-thumbnails" data-gallery-thumbnails aria-label="Project image gallery"></div>
           </div>
           <article class="project-dialog-copy">
             <p class="project-kicker" data-dialog-type>VR Training / Desktop</p>
