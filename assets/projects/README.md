@@ -23,3 +23,5 @@ Project folders:
 5. `05-astra-kinect-photobooth`
 6. `06-social-ar-filters`
 7. `07-virtual-aquarium`
+8. `08-virtual-training-v2`
+9. `09-virtual-tour-spbu-pertamina`

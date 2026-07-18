@@ -1,6 +1,6 @@
-const projects = [
+const existingProjects = [
   {
-    title: "Virtual Machine Training Template",
+    title: "Virtual Training V.1",
     type: "VR Training / Desktop Simulation",
     image: "assets/projects/01-virtual-machine-training/VMT1.png",
     images: [
@@ -9,7 +9,7 @@ const projects = [
       "assets/projects/01-virtual-machine-training/VMT3.png",
       "assets/projects/01-virtual-machine-training/VMT4.png",
     ],
-    alt: "Virtual Machine Training Template VR Unity project screenshots",
+    alt: "Virtual Training V.1 Unity project screenshots",
     role: "Unity Developer",
     description:
       "A flexible Unity framework for educational machine training across desktop and VR. It supports guided lessons, rich multimedia, interactive 3D animations, virtual controls, quizzes, PDF modules, local data, and free-play exploration.",
@@ -114,6 +114,59 @@ const projects = [
   },
 ];
 
+const virtualTrainingV2 = {
+  title: "Virtual Training V.2",
+  type: "VR Training / In Development",
+  image: "assets/projects/08-virtual-training-v2/placeholder.svg",
+  images: ["assets/projects/08-virtual-training-v2/placeholder.svg"],
+  alt: "Virtual Training V.2 project preview",
+  role: "Unity Developer",
+  description:
+    "A VR training project currently in development, focused on guided interaction, simulation logic, clear user feedback, and reliable training flows. Client and operational details remain confidential.",
+  stack: ["Unity", "C#", "VR", "Interaction Design", "Simulation Systems"],
+};
+
+const virtualTourSpbu = {
+  title: "Virtual Tour SPBU",
+  type: "Web / Virtual Tour",
+  image: "assets/projects/09-virtual-tour-spbu-pertamina/placeholder.svg",
+  images: ["assets/projects/09-virtual-tour-spbu-pertamina/placeholder.svg"],
+  alt: "Virtual Tour SPBU web experience preview",
+  role: "Interactive Developer",
+  description:
+    "A browser-based virtual tour for SPBU environments built with krpano. The experience supports panoramic exploration, guided navigation, interactive hotspots, and contextual information across desktop and mobile browsers.",
+  stack: ["krpano", "Web", "360 Virtual Tour", "Interactive Hotspots", "Responsive UI"],
+};
+
+const virtualTrainingV1 = {
+  ...existingProjects[0],
+  title: "Virtual Training V.1",
+  type: "VR Training / Desktop & VR",
+  alt: "Virtual Training V.1 Unity project screenshots",
+};
+
+const socialArFilter = {
+  ...existingProjects[5],
+  title: "TikTok & Instagram Filter",
+};
+
+const virtualAquarium = {
+  ...existingProjects[6],
+  title: "Virtual Aquarium & Mini Game",
+};
+
+const projects = [
+  virtualTrainingV2,
+  virtualTourSpbu,
+  existingProjects[1],
+  virtualTrainingV1,
+  existingProjects[2],
+  socialArFilter,
+  existingProjects[3],
+  existingProjects[4],
+  virtualAquarium,
+];
+
 const projectItems = Array.from(document.querySelectorAll("[data-project-index]"));
 const previewButton = document.querySelector("[data-project-preview]");
 const previewImage = document.querySelector("[data-project-preview-image]");
@@ -125,7 +178,7 @@ const galleryThumbnails = dialog.querySelector("[data-gallery-thumbnails]");
 const galleryPrevious = dialog.querySelector("[data-gallery-previous]");
 const galleryNext = dialog.querySelector("[data-gallery-next]");
 
-let activeProjectIndex = 1;
+let activeProjectIndex = 0;
 let activeImageIndex = 0;
 let activeProjectPage = 0;
 const projectsPerPage = 5;
@@ -215,7 +268,8 @@ function updateDialog(index) {
   const project = projects[index];
   const projectNumber = String(index + 1).padStart(2, "0");
 
-  dialog.querySelector("[data-dialog-counter]").textContent = `Project ${projectNumber} / 07`;
+  const projectTotal = String(projects.length).padStart(2, "0");
+  dialog.querySelector("[data-dialog-counter]").textContent = `Project ${projectNumber} / ${projectTotal}`;
   dialog.querySelector("[data-dialog-type]").textContent = project.type;
   dialog.querySelector("[data-dialog-title]").textContent = project.title;
   dialog.querySelector("[data-dialog-description]").textContent = project.description;

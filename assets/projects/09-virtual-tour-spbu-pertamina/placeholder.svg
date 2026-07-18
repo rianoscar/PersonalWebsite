@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="title description">
+  <title id="title">Virtual Tour SPBU image placeholder</title>
+  <desc id="description">Temporary placeholder until project screenshots are added.</desc>
+  <defs>
+    <pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse">
+      <path d="M80 0H0V80" fill="none" stroke="#1f2933" stroke-width="2"/>
+    </pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="#090b0e"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect x="300" y="260" width="1000" height="480" fill="#10151b" stroke="#67e8f9" stroke-width="3"/>
+  <circle cx="800" cy="450" r="105" fill="none" stroke="#67e8f9" stroke-width="8"/>
+  <path d="M695 450h210M800 345c45 42 68 77 68 105s-23 63-68 105c-45-42-68-77-68-105s23-63 68-105Z" fill="none" stroke="#67e8f9" stroke-width="8"/>
+  <text x="800" y="660" fill="#f4f6f8" font-family="Consolas, monospace" font-size="54" font-weight="700" text-anchor="middle">VIRTUAL TOUR SPBU</text>
+  <text x="800" y="708" fill="#a9b2bf" font-family="Consolas, monospace" font-size="24" text-anchor="middle">PROJECT IMAGES PENDING</text>
+</svg>
