@@ -4,8 +4,8 @@ Place project images inside the matching numbered folder.
 
 Recommended naming:
 
-- `cover.jpg` or `cover.webp` for the main preview image.
-- `01.jpg`, `02.jpg`, `03.jpg`, and so on for gallery images.
+- `cover.webp` for the main preview image.
+- `01.webp`, `02.webp`, `03.webp`, and so on for gallery images.
 
 Recommended dimensions:
 
@@ -25,3 +25,7 @@ Project folders:
 7. `07-virtual-aquarium`
 8. `08-virtual-training-v2`
 9. `09-virtual-tour-spbu-pertamina`
+10. `10-wirosableg-vr-experience`
+11. `11-fire-safety-vr-experience`
+12. `12-vtuber-vr-research`
+13. `13-zombike`
